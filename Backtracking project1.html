@@ -463,7 +463,98 @@
 [19:45, 16/12/2022] +91 85018 67870: <br> Next, notice that for a given board position, each marble occupies a unique space. Hence, instead of talking about moving a particular marble, we can talk about moving the marble in a particular space. If a move is possible from a given space, then that must be the only move possible from that space, because if the marble in that space has a move, it is unique. There is a slight complication because not every space contains a marble, but at least the spaces (unlike the marbles) stay in one place.</p><br>
 
  <p><B>Now we have a simpler ordering of moves to use in our program. Just check, in order, the 2n+1 spaces of the board. For each space, either zero or one moves is possible. With this understanding, we can write a boolean method canMove(int[] board, …
+  <fieldset style="color: #007EB4";><pre> 
+
+boolean solvable(int[] board) {
+  if (puzzlesoved(borad)) {
+    return true
+  }
+  for (int position=0 ; position< BOARD_SIZE; position++) {
+    if(canMove (board position)) {
+      int[] newBoard= markMove(board,position);
+      if(solvable(newBoard)){
+        printBoard(newBoard);
+        return true;
+      }
+
+    }
+  }
+  return false;
+}
+</pre></fieldset>
+<br>
+
+
+  <p style="color:gray;">
+    Here is some output from the program
+
+
+  </p>
+  <font color="blue">16.</font>
+  WHITE WHITE WHITE ____ BLACK BLACK BLACK
+  <br>
+  <font color="blue">15.</font>
+  WHITE WHITE WHITE BLACK____  BLACK BLACK
+  <br>
+  font color="blue">14.</font>
+  WHITE WHITE  ____ BLACK WHITE BLACK BLACK
+  <br>
+  <font color="blue">13.</font>
+  WHITE_____ WHITE BLACK WHITE  BLACK BLACK
+  <br>
+  <font color="blue">12.</font>
+  WHITE BLACK WHITE ___ WHITE  BLACK WHITE
+  <br>
+  <font color="blue">11.</font>
+  WHITE BLACK WHITE BLACK WHITE ____ BLACK 
+  <br>
+  <font color="blue">10.</font>
+  WHITE BLACK WHITE BLACK WHITE BLACK ____
+  <br>
+  <font color="blue">9.</font>
+  WHITE BLACK WHITE BLACK  ____ BLACK WHITE 
+  <br>
+  <font color="blue">8.</font>
+  WHITE BLACK ____ BLACK WHITE BLACK WHITE
+  <br>
+  <font color="blue">7.</font>
+  ___  BLACK  WHITE BLACK WHITE BLACK WHITE
+  <br>
+  <font color="blue">6.</font>
+  BLACK  ____  WHITE BLACK WHITE BLACK WHITE
+  <br>
+  <font color="blue">5.</font>
+  BLACK  WHITE BLACK ___ K WHITE BLACK WHITE
+  <br>
+  <font color="blue">4.</font>
+   BLACK  BLACK WHITE BLACK WHITE_____ WHITE
+   <br>
+   <font color="blue">3.</font>
+  BLACK BLACK WHITE BLACK ____ WHITE WHITE
+  <br>
+  <font color="blue">2.</font>
+   BLACK BLACK ____ BLACK WHITE WHITE WHITE
+   <br>
+   <font color="blue">1.</font>
+  BLACK BLACK BLACK ____ WHITE WHITE WHITE
+  <br>
+  <p style="color:gray;">
+  Notice that the solution is given in reverse order: BLACK start on out of the left and WHITE of the right, as in the <br>
+  last line.I have addedd line numbers to the actual output of in order to emphasize the point.Backtracking always produce its <br>
+  results (sequence of choices)in reverse order;it is up to you,the programmer;to reverse results again to get them in the reverse order.
+  </p>
+
+
+
+ 
   
+
+
+
+  
+
+    
+
 
     
 
